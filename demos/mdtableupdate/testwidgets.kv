@@ -1,0 +1,112 @@
+#:import Snackbar kivymd.uix.snackbar.Snackbar
+
+MDScreen:
+    name: 'sellerprofile'
+    MDNavigationLayout:
+        size : root.width, root.height
+
+        ScreenManager:
+            id: screen_manager
+
+            Screen:
+                name: "mddatatable"
+
+                BoxLayout:
+                    orientation: 'vertical'
+
+                    MDToolbar:
+                        id: toolbar
+                        title: "LOCAL VENDOR"
+                        md_bg_color: 60/255, 194/255, 89/255, 1
+                        
+
+                    MDTabs:
+                        lock_swiping: True
+                        font_name: "fonts/Product Sans Regular.ttf"
+                        background_color: 60/255, 194/255, 89/255, 1
+                        Tab1:
+                            
+                            title: "Products"
+
+
+                        Tab2:
+
+                            title: "Add Products"
+
+
+<Tab1>:
+
+
+    MDRaisedButton:
+        elevation: 13
+        font_size: "16sp"
+        size_hint: .4, .1
+        text_color: 0/255,0/255,0/255,1
+        md_bg_color: 60/255, 194/255, 89/255, 1
+        text: 'See Products'
+        on_press: 
+            root.on_enter()
+            Snackbar(text="Tap again to see recently added products",snackbar_x="10dp",snackbar_y="10dp",size_hint_x=.9,).open()
+        pos_hint: {'center_x': .5, 'center_y': .9}
+        font_name: "fonts/Product Sans Regular.ttf"
+        
+
+
+<Tab2>:
+
+    MDFloatLayout:
+        size_hint: .70, .03
+        pos_hint: {"center_x": .5,"center_y": .83}
+
+        MDTextField:
+            id : productname
+            hint_text: "Product Name"
+            mode: "rectangle"
+            pos_hint: {"center_x": .5,"center_y": .5}
+
+    MDFloatLayout:
+        size_hint: .30, .03
+        pos_hint: {"center_x": .3,"center_y": .7}
+
+        MDTextField:
+            id: mrp
+            hint_text: "MRP"
+            mode: "rectangle"
+            pos_hint: {"center_x": .5,"center_y": .5}
+            input_filter: 'int'
+
+    MDFloatLayout:
+        size_hint: .30, .03
+        pos_hint: {"center_x": .6,"center_y": .7}
+
+        MDTextField:
+            id: quantity
+            hint_text: "Quantity"
+            mode: "rectangle"
+            pos_hint: {"center_x": .82,"center_y": .5}
+
+    MDFloatLayout:
+        size_hint: .70, .03
+        pos_hint: {"center_x": .5,"center_y": .57}
+
+        MDTextField:
+            id: productdescription
+            hint_text: "Product Description (optional)"
+            mode: "rectangle"
+            multiline: True
+            pos_hint: {"center_x": .5,"center_y": .5}
+
+    MDRaisedButton:
+        text: "Add Product"
+        elevation: 15
+        size_hint: .5, .1
+        font_size: "18sp"
+        text_color: 0/255,0/255,0/255,1
+        md_bg_color: 60/255, 194/255, 89/255, 1
+        md_bg_color_disabled: 222/255, 222/255, 222/255, 1
+        pos_hint: {"center_x": .5,"center_y": .3}
+        font_name: "fonts/Product Sans Regular.ttf"
+        disabled: True if (productname.text and mrp.text) == '' else False
+        on_release:
+            app.addproduct( productname, mrp , quantity , productdescription )
+            app.show_product_added()

@@ -45,7 +45,8 @@ LabelBase.register(name='Quicksand',fn_regular=r'C:\Users\thuan\AppData\Local\Mi
 from ctypes import windll
 windll.shcore.SetProcessDpiAwareness(1)
 
-configLocation = r"E:\My Coding Shits\Python Shits\OS Experiments\GUIExperiments\kivyMD\fileMigrator\configurations.json"
+#configLocation = r"E:\My Coding Shits\Python Shits\OS Experiments\GUIExperiments\kivyMD\fileMigrator\configurations.json"
+configLocation = os.path.join(os.getcwd(),"configurations.json")
 configData = json.load(open(configLocation))
 
 
@@ -1057,9 +1058,10 @@ class removeDirScreen(Screen):
                                 ("[size=24]Directory[/size]",dp(120))
                             ],
                             row_data=self.origDirsListForDataTable,
-                            opacity=1,                      
-                            background_color_cell = get_color_from_hex("#FF0000"),     
+                            opacity=1,                           
+                            background_color=(0,0,0,1),
                             elevation=20)
+        
         
         self.add_widget(self.table)
         self.button = MDFillRoundFlatIconButton(text='Remove',
