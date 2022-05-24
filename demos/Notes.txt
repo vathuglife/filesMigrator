@@ -1,0 +1,5 @@
+Switch between screens from whatever object (Button, MDButton...)
+https://stackoverflow.com/questions/63007324/how-to-switch-screens-in-kivy-python-file-from-outside-of-a-screen-instance
+
+About Properties (ObjectProperty, StringProperty...)
+- They can be considered "bridges" that help Kivy and Python exchange data to each other (Kivy sends id of a screen to Python for functions and stuffs)
