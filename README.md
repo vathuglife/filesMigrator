@@ -47,7 +47,11 @@ Before doing anything, here are a couple of dependencies that need to be install
 - KivyMD (version 0.104.2, can be installed via CMD using the command: `python -m pip install kivymd==0.104.2`)
 - Auto Py to Exe (Windows CMD command: `python -m pip install auto-py-to-exe`)
 
-+ Step 1: After pulling the source code from GitHub, open up the terminal and type: `auto-py-to-exe`
++ Step 1: After pulling the source code from GitHub, open up the terminal and type: `auto-py-to-exe`.
 + Step 2: In the Script Location section, browse to the folder containing the **migratorGUI.py** file.
 + Step 3: In the Onefile section, choose **One File** option.
 + Step 4: In the Console Window section, Choose the **Window Based** option.
++ Step 5: In the Additional Files section, choose the **Add Folder** option, then select the **folder containing the migratorGUI.py** file (It should be the ver1.4 folder).
++ Step 6: In the Advanced Options, choose the **hidden-imports** section, then click the plus button once more to show a total of 2 entries. Then for each entry, type in: `plyer.platforms.win.notification`, `plyer.platforms.win.filechooser`
++ Step 7: In the Settings section, **Output Directory** option, browse to the folder where you want the final EXE file to be created.
++ Step 8: Click **Convert PY to EXE** and you are done!
