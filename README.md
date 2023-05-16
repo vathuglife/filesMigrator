@@ -9,7 +9,7 @@ the Python syntax, as well as some Object-Oriented Concepts.
 Since this is one of my very first projects, the folder
 organization as well as file separation might be so horrendous 
 that it could easily disturb viewers. 
-So please be careful!
+So...take care! (heheh...)
 
 ## Technologies used
 Just Kivy (a Python framework).
